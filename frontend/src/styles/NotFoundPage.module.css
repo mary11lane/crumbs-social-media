@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #d0bdad;
+}
+
+.iconDirection {
+  font-size: 4rem;
+}
+
+.iconHome {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #d0bdad;
+  background-color: #473321;
+  box-shadow: 2px 4px #000;
+}
+
+p {
+  margin: 10px;
+}
