@@ -61,7 +61,7 @@ const viewPage = () => {
               <div className={styles.item}>
                 {/* <img src={`http://localhost:5000/uploads/${item.image}`} /> */}
                 <img
-                  src={`https://lanesb-crumbs-social-media.herokuapp.com/uploads${item.image}`}
+                  src={`https://lanesb-crumbs-social-media.herokuapp.com/uploads/${item.image}`}
                 />
                 <div className={styles.username}>
                   <FaUserCircle className={styles.icon} />
