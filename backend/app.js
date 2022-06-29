@@ -42,4 +42,12 @@ app.use('/items', items);
 //   res.status(500).json(err);
 // });
 
+// FOR DEPLOYMENT
+
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/frontend/dist', 'index.html'));
+});
+
 export default app;
