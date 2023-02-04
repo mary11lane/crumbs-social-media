@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import { FaCookieBite } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,9 +9,10 @@ import styles from '../styles/CreatePage.module.css';
 import NavBar from '../components/NavBar.jsx';
 import Footer from '../components/Footer.jsx';
 
-const createPage = () => {
-  // const url = 'http://localhost:5000/items';
-  const url = 'https://lanesb-crumbs-social-media-app.herokuapp.com/items';
+const editPage = () => {
+  const { id } = useParams();
+  const url = '/items';
+  // const url = 'https://lanesb-crumbs-social-media-app.herokuapp.com/items';
   const [username, setUsername] = useState('');
   const [filename, setFilename] = useState('');
   const [title, setTitle] = useState('');
@@ -32,16 +34,24 @@ const createPage = () => {
     formData.append('description', description);
     formData.append('category', category);
 
-    setUsername('');
-    setTitle('');
-    setDescription('');
-    setCategory('');
-
-    await axios.post(url, formData);
+    axios.put(`${url}/${id}`, formData);
   };
 
+  const fetchData = async () => {
+    const { data } = await axios.get(`${url}/${id}`);
+    setUsername(data.username);
+    setTitle(data.title);
+    setDescription(data.description);
+    setCategory(data.category);
+    setFilename(data.image);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const notify = () =>
-    toast('Crumbs created!', {
+    toast('Crumbs updated!', {
       position: 'bottom-center',
       autoClose: 1000,
       hideProgressBar: true,
@@ -98,7 +108,7 @@ const createPage = () => {
             filename="image"
           ></input>
           <button className={styles.button} onClick={notify}>
-            Create
+            Update
           </button>
           <ToastContainer />
         </form>
@@ -108,4 +118,4 @@ const createPage = () => {
   );
 };
 
-export default createPage;
+export default editPage;

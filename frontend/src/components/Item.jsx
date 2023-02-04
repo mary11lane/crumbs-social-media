@@ -7,10 +7,10 @@ const Item = ({ id, username, title, image, description, category }) => {
   return (
     <main className={styles.container}>
       <div className={styles.item} key={id}>
-        {/* <img src={`http://localhost:5000/uploads/${image}`} /> */}
-        <img
+        <img src={`/uploads/${image}`} />
+        {/* <img
           src={`https://lanesb-crumbs-social-media-app.herokuapp.com/uploads/${image}`}
-        />
+        /> */}
         <div className={styles.username}>
           <FaUserCircle className={styles.icon} />
           {username}

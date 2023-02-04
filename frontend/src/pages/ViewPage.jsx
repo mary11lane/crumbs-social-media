@@ -16,10 +16,10 @@ const viewPage = () => {
   const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
-    // const { data } = await axios.get('http://localhost:5000/items');
-    const { data } = await axios.get(
-      'https://lanesb-crumbs-social-media-app.herokuapp.com/items'
-    );
+    const { data } = await axios.get('/items');
+    // const { data } = await axios.get(
+    //   'https://lanesb-crumbs-social-media-app.herokuapp.com/items'
+    // );
     setItems(data);
   };
   useEffect(() => {
@@ -27,10 +27,10 @@ const viewPage = () => {
   }, []);
 
   const deleteItem = async (id) => {
-    // await axios.delete(`http://localhost:5000/items/${id}`);
-    await axios.delete(
-      `https://lanesb-crumbs-social-media-app.herokuapp.com/items/${id}`
-    );
+    await axios.delete(`/items/${id}`);
+    // await axios.delete(
+    //   `https://lanesb-crumbs-social-media-app.herokuapp.com/items/${id}`
+    // );
     setItems(items.filter((item) => item._id !== id));
     notify();
   };
@@ -59,10 +59,10 @@ const viewPage = () => {
           {items.map((item) => (
             <div key={item._id} id={item._id} className={styles.container}>
               <div className={styles.item}>
-                {/* <img src={`http://localhost:5000/uploads/${item.image}`} /> */}
-                <img
+                <img src={`/uploads/${item.image}`} />
+                {/* <img
                   src={`https://lanesb-crumbs-social-media-app.herokuapp.com/uploads/${item.image}`}
-                />
+                /> */}
                 <div className={styles.username}>
                   <FaUserCircle className={styles.icon} />
                   {item.username}
