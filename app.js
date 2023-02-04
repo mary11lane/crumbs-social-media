@@ -15,8 +15,7 @@ const dbUsername = process.env.DB_USERNAME;
 const dbPassword = process.env.DB_PASSWORD;
 
 connectDb(
-  `mongodb+srv://${dbUsername}:${dbPassword}@cluster0.mp34x.mongodb.net/`,
-  'backendxfrontend'
+  `mongodb+srv://${dbUsername}:${dbPassword}@cluster0.mp34x.mongodb.net/backendxfrontend`
 );
 
 const app = express();
