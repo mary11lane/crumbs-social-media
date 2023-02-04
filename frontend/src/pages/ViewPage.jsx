@@ -59,7 +59,7 @@ const viewPage = () => {
           {items.map((item) => (
             <div key={item._id} id={item._id} className={styles.container}>
               <div className={styles.item}>
-                <img src={`/uploads/${item.image}`} />
+                <img src={`/tmp/${item.image}`} />
                 {/* <img
                   src={`https://lanesb-crumbs-social-media-app.herokuapp.com/uploads/${item.image}`}
                 /> */}

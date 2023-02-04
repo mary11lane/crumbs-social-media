@@ -7,7 +7,7 @@ const Item = ({ id, username, title, image, description, category }) => {
   return (
     <main className={styles.container}>
       <div className={styles.item} key={id}>
-        <img src={`/uploads/${image}`} />
+        <img src={`/tmp/${image}`} />
         {/* <img
           src={`https://lanesb-crumbs-social-media-app.herokuapp.com/uploads/${image}`}
         /> */}
