@@ -8,7 +8,6 @@ export const addItem = async (req, res) => {
     const item = new Item({
       username: req.body.username,
       image: result.secure_url,
-      // image: req.file.originalname,
       cloudinary_id: result.public_id,
       title: req.body.title,
       description: req.body.description,
