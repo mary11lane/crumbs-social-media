@@ -8,9 +8,6 @@ const Item = ({ id, username, title, image, description, category }) => {
     <main className={styles.container}>
       <div className={styles.item} key={id}>
         <img src={`${image}`} />
-        {/* <img
-          src={`https://lanesb-crumbs-social-media-app.herokuapp.com/uploads/${image}`}
-        /> */}
         <div className={styles.username}>
           <FaUserCircle className={styles.icon} />
           {username}

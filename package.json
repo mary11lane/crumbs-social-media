@@ -4,8 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node bin/www.js",
-    "heroku-postbuild": "cd frontend && npm install && npm run build"
+    "start": "node bin/www.js"
   },
   "dependencies": {
     "cloudinary": "^1.33.0",

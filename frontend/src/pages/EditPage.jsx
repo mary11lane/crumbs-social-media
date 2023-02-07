@@ -11,8 +11,6 @@ import Footer from '../components/Footer.jsx';
 
 const editPage = () => {
   const { id } = useParams();
-  const url = '/items';
-  // const url = 'https://lanesb-crumbs-social-media-app.herokuapp.com/items';
   const [username, setUsername] = useState('');
   const [filename, setFilename] = useState('');
   const [title, setTitle] = useState('');
@@ -34,7 +32,7 @@ const editPage = () => {
     formData.append('description', description);
     formData.append('category', category);
 
-    axios.put(`${url}/${id}`, formData);
+    axios.put(`/items/${id}`, formData);
   };
 
   const fetchData = async () => {

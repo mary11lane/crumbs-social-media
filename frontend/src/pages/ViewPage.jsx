@@ -17,9 +17,6 @@ const viewPage = () => {
 
   const fetchItems = async () => {
     const { data } = await axios.get('/items');
-    // const { data } = await axios.get(
-    //   'https://lanesb-crumbs-social-media-app.herokuapp.com/items'
-    // );
     setItems(data);
   };
   useEffect(() => {
@@ -28,9 +25,6 @@ const viewPage = () => {
 
   const deleteItem = async (id) => {
     await axios.delete(`/items/${id}`);
-    // await axios.delete(
-    //   `https://lanesb-crumbs-social-media-app.herokuapp.com/items/${id}`
-    // );
     setItems(items.filter((item) => item._id !== id));
     notify();
   };
@@ -60,9 +54,6 @@ const viewPage = () => {
             <div key={item._id} id={item._id} className={styles.container}>
               <div className={styles.item}>
                 <img src={`${item.image}`} />
-                {/* <img
-                  src={`https://lanesb-crumbs-social-media-app.herokuapp.com/uploads/${item.image}`}
-                /> */}
                 <div className={styles.username}>
                   <FaUserCircle className={styles.icon} />
                   {item.username}
