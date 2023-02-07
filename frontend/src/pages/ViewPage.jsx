@@ -14,9 +14,10 @@ import Footer from '../components/Footer.jsx';
 
 const viewPage = () => {
   const [items, setItems] = useState([]);
+  const url = '/items';
 
   const fetchItems = async () => {
-    const { data } = await axios.get('/items');
+    const { data } = await axios.get(url);
     setItems(data);
   };
   useEffect(() => {
@@ -24,7 +25,7 @@ const viewPage = () => {
   }, []);
 
   const deleteItem = async (id) => {
-    await axios.delete(`/items/${id}`);
+    await axios.delete(`${url}/${id}`);
     setItems(items.filter((item) => item._id !== id));
     notify();
   };

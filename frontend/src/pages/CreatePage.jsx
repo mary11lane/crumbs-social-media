@@ -9,6 +9,7 @@ import NavBar from '../components/NavBar.jsx';
 import Footer from '../components/Footer.jsx';
 
 const createPage = () => {
+  const url = '/items';
   const [username, setUsername] = useState('');
   const [filename, setFilename] = useState('');
   const [title, setTitle] = useState('');
@@ -35,7 +36,7 @@ const createPage = () => {
     setDescription('');
     setCategory('');
 
-    await axios.post('/items', formData);
+    await axios.post(url, formData);
   };
 
   const notify = () =>

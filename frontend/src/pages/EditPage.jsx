@@ -11,6 +11,7 @@ import Footer from '../components/Footer.jsx';
 
 const editPage = () => {
   const { id } = useParams();
+  const url = '/items';
   const [username, setUsername] = useState('');
   const [filename, setFilename] = useState('');
   const [title, setTitle] = useState('');
@@ -32,7 +33,7 @@ const editPage = () => {
     formData.append('description', description);
     formData.append('category', category);
 
-    axios.put(`/items/${id}`, formData);
+    axios.put(`${url}/${id}`, formData);
   };
 
   const fetchData = async () => {
