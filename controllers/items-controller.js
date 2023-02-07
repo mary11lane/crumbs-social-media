@@ -1,14 +1,20 @@
 import Item from '../models/Item.js';
+import cloudinary from '../utils/cloudinary.js';
 
 export const addItem = async (req, res) => {
-  const item = new Item({
-    username: req.body.username,
-    image: req.file.originalname,
-    title: req.body.title,
-    description: req.body.description,
-    category: req.body.category,
-  });
   try {
+    const result = await cloudinary.uploader.upload(req.file.path);
+
+    const item = new Item({
+      username: req.body.username,
+      image: result.secure.url,
+      image: req.file.originalname,
+      cloudinary_id: result.public_id,
+      title: req.body.title,
+      description: req.body.description,
+      category: req.body.category,
+    });
+
     const addedItem = await item.save();
     res.status(201).json(addedItem);
   } catch (err) {
@@ -44,6 +50,7 @@ export const updateItem = async (req, res) => {
 export const deleteItem = async (req, res) => {
   try {
     const item = await Item.findByIdAndDelete(req.params.id);
+    await cloudinary.uploader.destroy(item.cloudinary_id);
     res.send('item deleted');
   } catch (err) {
     res.status(500).json({ message: err.message });

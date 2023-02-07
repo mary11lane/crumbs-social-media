@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import multer from 'multer';
+import upload from '../utils/multer.js';
 
 import {
   addItem,
@@ -11,16 +11,16 @@ import {
 
 //MULTER SETUP
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, '/tmp');
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, '/tmp');
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, file.originalname);
+//   },
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
 //ROUTERS
 const router = Router();

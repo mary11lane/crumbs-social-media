@@ -11,6 +11,7 @@ export default model('Item', {
   username: requiredItems,
   image: requiredItems,
   title: requiredItems,
+  cloudinary_id: requiredItems,
   description: requiredItems,
   category: requiredItems,
   date: {
