@@ -14,7 +14,7 @@ import Footer from '../components/Footer.jsx';
 
 const viewPage = () => {
   const [items, setItems] = useState([]);
-  const url = '/items';
+  const url = 'http://localhost:5000/items';
 
   const fetchItems = async () => {
     const { data } = await axios.get(url);

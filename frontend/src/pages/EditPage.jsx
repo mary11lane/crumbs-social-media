@@ -11,7 +11,7 @@ import Footer from '../components/Footer.jsx';
 
 const editPage = () => {
   const { id } = useParams();
-  const url = '/items';
+  const url = 'http://localhost:5000/items';
   const [username, setUsername] = useState('');
   const [filename, setFilename] = useState('');
   const [title, setTitle] = useState('');
