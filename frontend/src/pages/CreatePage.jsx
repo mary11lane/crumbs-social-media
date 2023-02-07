@@ -9,8 +9,6 @@ import NavBar from '../components/NavBar.jsx';
 import Footer from '../components/Footer.jsx';
 
 const createPage = () => {
-  // const url = '/items';
-  // const url = 'https://lanesb-crumbs-social-media-app.herokuapp.com/items';
   const [username, setUsername] = useState('');
   const [filename, setFilename] = useState('');
   const [title, setTitle] = useState('');
