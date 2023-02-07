@@ -33,9 +33,15 @@ export const getItems = async (req, res) => {
 
 export const updateItem = async (req, res) => {
   try {
-    const item = await Item.findByIdAndUpdate(req.params.id, {
+    const item = await Item.findById(req.params.id);
+    await cloudinary.uploader.destroy(item.cloudinary_id);
+
+    const result = await cloudinary.uploader.upload(req.file.path);
+
+    item = await Item.findByIdAndUpdate(req.params.id, {
       username: req.body.username,
-      image: req.file.originalname,
+      image: result.secure_url,
+      cloudinary_id: result.public_id,
       title: req.body.title,
       description: req.body.description,
       category: req.body.category,
