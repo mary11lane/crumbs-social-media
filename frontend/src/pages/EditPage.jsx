@@ -103,7 +103,6 @@ const editPage = () => {
             className={styles.file}
             onChange={onChangeFile}
             id="image"
-            value={filename}
             placeholder="image"
             type="file"
             filename="image"
