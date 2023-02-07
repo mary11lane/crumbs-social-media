@@ -36,7 +36,6 @@ const createPage = () => {
     setTitle('');
     setDescription('');
     setCategory('');
-    setFilename('');
 
     await axios.post('/items', formData);
   };
